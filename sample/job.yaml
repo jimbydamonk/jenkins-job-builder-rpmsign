@@ -1,0 +1,10 @@
+- job:
+    name: test-job
+    publishers:
+      - rpmsign:
+          rpms: 
+            - gpgKeyName: 'test-1'
+              includes: '**/*.rpm'
+              resign: true
+            - gpgKeyName: 'test-2'
+              includes: 'test-2.rpm'
