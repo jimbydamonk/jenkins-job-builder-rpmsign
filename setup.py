@@ -5,7 +5,7 @@ def read(fname):
 
 setup(
     name = "jenkins-job-builder-rpmsign",
-    version = "0.0.3",
+    version = "0.0.4",
     author = "Mike Buzzetti",
     author_email = "mike.buzzetti@gmail.com",
     description = ("Jenkins-job-builder that adds support for Jenkins RPMSign plugin"),

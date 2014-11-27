@@ -20,15 +20,15 @@ def rpmsign(parser, xml_parent, data):
     rpm_sign = XML.SubElement(xml_parent, 
         "jenkins.plugins.rpmsign.RpmSignPlugin"
     )
-        
+
     entries = XML.SubElement(rpm_sign, 'entries')
-        
+
     for entry in data['rpms']:
-        rpm = XML.SubElement(entries, 'jenkins.plugins.rpmsign.RPM')
+        rpm = XML.SubElement(entries, 'jenkins.plugins.rpmsign.Rpm')
         XML.SubElement(rpm, 'gpgKeyName').text = entry['gpgKeyName']        
         XML.SubElement(rpm, 'includes').text = entry['includes']
         XML.SubElement(rpm, 'cmdlineOpts').text = entry.get('cmdlineOpts', '')
-        
+
         if entry.get('resign', False):
             XML.SubElement(rpm, 'resign').text = 'false'
         else:
