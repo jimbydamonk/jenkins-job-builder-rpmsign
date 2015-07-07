@@ -28,8 +28,4 @@ def rpmsign(parser, xml_parent, data):
         XML.SubElement(rpm, 'gpgKeyName').text = entry['gpgKeyName']        
         XML.SubElement(rpm, 'includes').text = entry['includes']
         XML.SubElement(rpm, 'cmdlineOpts').text = entry.get('cmdlineOpts', '')
-        
-        if entry.get('resign', False):
-            XML.SubElement(rpm, 'resign').text = 'false'
-        else:
-            XML.SubElement(rpm, 'resign').text =  'true'
+        XML.SubElement(rpm, 'resign').text = str(entry.get('resign', False)).lower()
